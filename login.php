@@ -52,6 +52,11 @@
                 }
 
                 if (password_verify( $password, $hash)) {
+                    
+                    session_start();
+                    $_SESSION['authenticated'] = true;
+                    $_SESSION['lasttime'] = time();
+                    
                     header("Location: hello.php", true, 301);
                     exit();
                     //echo "Logged In";
